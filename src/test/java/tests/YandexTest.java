@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.open;
 public class YandexTest {
 
     @Test
-    void selenideSearcTest(){
+    void selenideSearchTest(){
         open("https://yandex.ru/");
 
         // Ввести Selenide в поиск
         $(byId("text")).setValue("Selenide").pressEnter();
 
         // Проверить, что Selenide появился в результатах поиска
-        $(byXpath("//*[@class='link link_theme_outer path__item i-bem link_js_inited']//b"))
+        $(byXpath("//*[@class='organic__subtitle typo typo_type_greenurl']//b"))
                 .shouldHave(text("ru.selenide.org"));
     }
 }
