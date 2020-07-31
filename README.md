@@ -1,1 +1,1 @@
-# qa_guru_course_2
+# java web and mobile test example
