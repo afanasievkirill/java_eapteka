@@ -19,6 +19,7 @@ public class LoginTest extends EaptekaBaseTest{
         $(By.name("LOGIN")).setValue("coxoyis908@in4mail.net");
         $(By.name("PASSWORD")).setValue("password").pressEnter();
         $x(ENTRANCE).shouldHave(text("Личный кабинет"));
+        $x(LOGOUT).shouldHave(text("Выход")).click();
     }
 
     @ParameterizedTest
@@ -28,6 +29,7 @@ public class LoginTest extends EaptekaBaseTest{
         $(By.name("LOGIN")).setValue(login);
         $(By.name("PASSWORD")).setValue(password).pressEnter();
         $x(ENTRANCE).shouldHave(text("Личный кабинет"));
+        $x(LOGOUT).shouldHave(text("Выход")).click();
     }
 
 
