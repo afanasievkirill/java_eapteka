@@ -15,21 +15,21 @@ public class LoginTest extends EaptekaBaseTest{
 
     @Test
     public void loginTest(){
-        $x(ENTRANCE).shouldHave(text("Вход")).click();
-        $(By.name("LOGIN")).setValue("coxoyis908@in4mail.net");
-        $(By.name("PASSWORD")).setValue("password").pressEnter();
-        $x(ENTRANCE).shouldHave(text("Личный кабинет"));
-        $x(LOGOUT).shouldHave(text("Выход")).click();
+        entrance.shouldHave(text("Вход")).click();
+        setLogin.setValue("coxoyis908@in4mail.net");
+        setPassword.setValue("password").pressEnter();
+        entrance.shouldHave(text("Личный кабинет"));
+        logout.shouldHave(text("Выход")).click();
     }
 
     @ParameterizedTest
     @CsvSource({"79153913430,password"})
         public void phoneLoginTest(String login, String password){
-        $x(ENTRANCE).shouldHave(text("Вход")).click();
-        $(By.name("LOGIN")).setValue(login);
-        $(By.name("PASSWORD")).setValue(password).pressEnter();
-        $x(ENTRANCE).shouldHave(text("Личный кабинет"));
-        $x(LOGOUT).shouldHave(text("Выход")).click();
+        entrance.shouldHave(text("Вход")).click();
+        setLogin.setValue(login);
+        setPassword.setValue(password).pressEnter();
+        entrance.shouldHave(text("Личный кабинет"));
+        logout.shouldHave(text("Выход")).click();
     }
 
 

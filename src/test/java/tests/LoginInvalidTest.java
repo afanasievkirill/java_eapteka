@@ -15,10 +15,10 @@ public class LoginInvalidTest extends EaptekaBaseTest{
     @ParameterizedTest
     @ValueSource(strings = {"1", "Noname", " ", "!@#$%^&*()"})
     public void wrongLoginTest(String invalidLogin){
-        $x(ENTRANCE).shouldHave(text("Вход")).click();
-        $(By.name("LOGIN")).setValue(invalidLogin);
-        $(By.name("PASSWORD")).setValue("password").pressEnter();
-        $x(LOGIN_ERROR).shouldHave(text("Введённое значение неверно"));
-        $x(POPUP_CLOSE).click();
+        entrance.shouldHave(text("Вход")).click();
+        setLogin.setValue(invalidLogin);
+        setPassword.setValue("password").pressEnter();
+        loginError.shouldHave(text("Введённое значение неверно"));
+        popupClose.click();
     }
 }
