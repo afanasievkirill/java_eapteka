@@ -1,11 +1,10 @@
-package tests;
+package tests.eapteka;
 
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class SearchTest extends EaptekaBaseTest {
+public class SearchTest extends BaseTest {
 
     @Test
     public void searchTest(){

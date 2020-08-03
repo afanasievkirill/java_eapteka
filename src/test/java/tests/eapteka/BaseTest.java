@@ -1,4 +1,4 @@
-package tests;
+package tests.eapteka;
 
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class EaptekaBaseTest {
+public class BaseTest {
 
     final static SelenideElement setRegion = $x("//*[@class='header__tower-skip header__skip-start btn btn-success btn-sm']");
 
@@ -19,7 +19,7 @@ public class EaptekaBaseTest {
     final SelenideElement popupClose = $x("//*[@class='popups__xclose']");
 
     //Search viget
-    final SelenideElement searchBar = $x("//*[@class='searchbar__label text-description text-description']");
+    final SelenideElement searchBar = $x("//form/input");
     final SelenideElement searchSubbmit = $x("//*[@class='searchbar__button btn btn-send']");
 
     @BeforeAll

@@ -1,15 +1,12 @@
-package tests;
+package tests.eapteka;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginTest extends EaptekaBaseTest{
+public class LoginTest extends BaseTest {
 
 
 
