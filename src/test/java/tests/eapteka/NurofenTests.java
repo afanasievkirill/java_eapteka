@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NurofenTests extends BaseTest {
 
-
-
     @Test
     void findNElement(){
         //Поиск
@@ -22,7 +20,6 @@ public class NurofenTests extends BaseTest {
         $x(".//*[@class='cc-item--title']").shouldHave(text(name));
         $x(".//*[@class='cc-item--title']").click();
     }
-
 
     @Test
     public void findSet(){
@@ -37,8 +34,5 @@ public class NurofenTests extends BaseTest {
         //Проверю колчество элементов в доме
         $$x(".//*[@class='d-flex align-items-start align-items-lg-center cc-item']").shouldHaveSize(quantity);
     }
-
-
-
 
 }
