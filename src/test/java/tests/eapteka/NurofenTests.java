@@ -3,17 +3,16 @@ package tests.eapteka;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NurofenTests extends BaseTest {
 
+
+
     @Test
-    void findNurofen(){
-        //Логин
-        entrance.shouldHave(text("Вход")).click();
-        setLogin.setValue("coxoyis908@in4mail.net");
-        setPassword.setValue("password").pressEnter();
-        entrance.shouldHave(text("Личный кабинет"));
+    void findNElement(){
         //Поиск
         String name = "Афобазол";
         searchBar.setValue(name);
@@ -22,7 +21,23 @@ public class NurofenTests extends BaseTest {
         //Добавление первого элемента в корзину (Без проверки)
         $x(".//*[@class='cc-item--title']").shouldHave(text(name));
         $x(".//*[@class='cc-item--title']").click();
-        //Выход
-        logout.shouldHave(text("Выход")).click();
     }
+
+
+    @Test
+    public void findSet(){
+        String name = "Нурофен";
+        int quantity = 19;
+        String result = "Найдено " + quantity + " результатов";
+        searchBar.setValue(name);
+        searchSubbmit.pressEnter();
+        String findResult = $x(".//*[@class='text-muted d-block d-sm-inline']").getText();
+        assertEquals(result, findResult);
+        $$x(".//*[@class='d-flex align-items-start align-items-lg-center cc-item']").shouldHaveSize(quantity);
+
+    }
+
+
+
+
 }
