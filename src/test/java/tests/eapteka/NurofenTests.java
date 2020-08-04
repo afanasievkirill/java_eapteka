@@ -31,10 +31,11 @@ public class NurofenTests extends BaseTest {
         String result = "Найдено " + quantity + " результатов";
         searchBar.setValue(name);
         searchSubbmit.pressEnter();
+        //Получаю результат поиска и проверяю значение
         String findResult = $x(".//*[@class='text-muted d-block d-sm-inline']").getText();
         assertEquals(result, findResult);
+        //Проверю колчество элементов в доме
         $$x(".//*[@class='d-flex align-items-start align-items-lg-center cc-item']").shouldHaveSize(quantity);
-
     }
 
 
