@@ -1,15 +1,17 @@
 package tests.eapteka;
 
+import io.qameta.allure.Issue;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.LoginPage;
-
-import static com.codeborne.selenide.Condition.text;
 
 public class LoginInvalidTest extends BaseTest {
 
     LoginPage loginPage = new LoginPage();
 
+    @Issue("WEB-15283")
+    @DisplayName("Проверяю ввод невалидных данных в поле Логин")
     @ParameterizedTest
     @ValueSource(strings = {"1", "Noname", " ", "!@#$%^&*()"})
     public void wrongLoginTest(String login){

@@ -38,3 +38,5 @@ target/
 /gradlew
 /gradlew.bat
 .todo
+
+allure.properties

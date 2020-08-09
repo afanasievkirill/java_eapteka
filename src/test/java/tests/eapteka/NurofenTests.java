@@ -1,38 +1,39 @@
 package tests.eapteka;
 
+import io.qameta.allure.Issue;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.SearchPage;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NurofenTests extends BaseTest {
 
+    SearchPage searchPage = new SearchPage();
+
+    @Issue("WEB-15371")
+    @DisplayName("Проверяю работу поиска")
     @Test
-    void findNElement(){
-        //Поиск
+     public void findNElementTest(){
         String name = "Афобазол";
-        searchBar.setValue(name);
-        searchSubbmit.click();
+        searchPage.setProductName(name);
+        searchPage.pressSubbmitButton();
         $x(".//strong[text()="+name+"]");
-        //Добавление первого элемента в корзину (Без проверки)
         $x(".//*[@class='cc-item--title']").shouldHave(text(name));
         $x(".//*[@class='cc-item--title']").click();
     }
 
+    @Issue("WEB-15371")
+    @DisplayName("Проверяю наличие {quantity} элементов в списке при поиске по имени {name}")
     @Test
-    public void findSet(){
+    public void findSetTest(){
         String name = "Нурофен";
         int quantity = 19;
-        String result = "Найдено " + quantity + " результатов";
-        searchBar.setValue(name);
-        searchSubbmit.pressEnter();
-        //Получаю результат поиска и проверяю значение
-        String findResult = $x(".//*[@class='text-muted d-block d-sm-inline']").getText();
-        assertEquals(result, findResult);
-        //Проверю колчество элементов в доме
-        $$x(".//*[@class='d-flex align-items-start align-items-lg-center cc-item']").shouldHaveSize(quantity);
+        searchPage.setProductName(name);
+        searchPage.pressEnter();
+        searchPage.checkHeaderElementsList(quantity);
+        searchPage.checkList(quantity);
     }
 
 }
