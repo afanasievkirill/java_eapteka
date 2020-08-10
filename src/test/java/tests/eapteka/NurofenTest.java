@@ -1,14 +1,14 @@
 package tests.eapteka;
 
+import eapteka.pages.SearchPage;
 import io.qameta.allure.Issue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import eapteka.pages.SearchPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class NurofenTests extends BaseTest {
+public class NurofenTest extends BaseTest {
 
     SearchPage searchPage = new SearchPage();
 

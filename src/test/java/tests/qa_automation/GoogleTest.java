@@ -1,4 +1,4 @@
-package tests;
+package tests.qa_automation;
 
 import org.junit.jupiter.api.Test;
 
