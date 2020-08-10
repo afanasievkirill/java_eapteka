@@ -19,7 +19,7 @@ public class LoginPage {
             loginError = $x("//*[@class='help-block form-error']"),
             loginFormClose = $x("//*[@class='popups__xclose']");
 
-    @Step("Залогиниваюсь на сатйе")
+    @Step("Залогиниваюсь на сайте")
     public LoginPage logInToTheSite(String login, String password){
         openLoginForm();
         setLogin(login);
@@ -28,7 +28,7 @@ public class LoginPage {
         return this;
     }
 
-    @Step
+    @Step("Проверяю наличие Чек бокса для Логина")
     public LoginPage loginCheck(){
         entrance.shouldHave(text("Личный кабинет")).shouldBe(visible);
         return this;
