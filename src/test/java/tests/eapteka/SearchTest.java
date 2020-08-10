@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import io.qameta.allure.Issue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.SearchPage;
+import eapteka.pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 

@@ -1,4 +1,4 @@
-package pages;
+package eapteka.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -24,6 +24,7 @@ public class LoginPage {
         openLoginForm();
         setLogin(login);
         setPassword(password);
+        loginCheck();
         return this;
     }
 

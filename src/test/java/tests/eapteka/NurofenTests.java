@@ -3,7 +3,7 @@ package tests.eapteka;
 import io.qameta.allure.Issue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.SearchPage;
+import eapteka.pages.SearchPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$x;
