@@ -43,6 +43,8 @@ dependencies {
     testImplementation "ch.qos.logback:logback-classic:1.2.3"
     compile 'com.squareup.retrofit2:retrofit:2.9.0'
     compile 'com.squareup.retrofit2:converter-gson:2.9.0'
+    compile 'io.qameta.allure:allure-okhttp3:2.13.3'
+    testCompile 'junit:junit:4.12'
 }
 
 tasks.withType(JavaCompile) {
