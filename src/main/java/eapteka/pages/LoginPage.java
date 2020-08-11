@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
+import static io.qameta.allure.Allure.parameter;
 
 public class LoginPage {
 
@@ -21,6 +22,8 @@ public class LoginPage {
 
     @Step("Логин на сайте")
     public LoginPage logInToTheSite(String login, String password){
+        parameter("Логин", login);
+        parameter("Пароль", password);
         openLoginForm();
         setLogin(login);
         setPassword(password);
@@ -48,12 +51,14 @@ public class LoginPage {
 
     @Step("Ввод значения {login} в поле ввода Логин")
     public LoginPage setLogin(String login){
+        parameter("Логин", login);
         setLogin.shouldBe(visible).setValue(login);
         return this;
     }
 
     @Step("Ввод значения {password} в поле ввода Пароль")
     public LoginPage setPassword (String password){
+        parameter("Пароль", password);
         setPassword.shouldBe(visible).setValue(password).pressEnter();
         return this;
     }

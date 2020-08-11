@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
+import static io.qameta.allure.Allure.parameter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SearchPage {
@@ -19,8 +20,9 @@ public class SearchPage {
     private static final ElementsCollection
         elementsList = $$x(".//*[@class='d-flex align-items-start align-items-lg-center cc-item']");
 
-    @Step("Ввод Наименование Препарата в строке поиска")
+    @Step("Ввод Наименования Препарата в строке поиска")
     public SearchPage setProductName(String productName) {
+        parameter("Наименование препарата", productName);
         searchBar.shouldBe(visible).setValue(productName);
         return this;
     }
@@ -39,6 +41,7 @@ public class SearchPage {
 
     @Step("Проверка количества найденных элементов в заголовке Списка")
     public SearchPage checkHeaderElementsList(int quantity){
+        parameter("Количество элементов в Шапке", quantity);
         String result = "Найдено " + quantity + " результатов";
         String findResult = checkElement.shouldBe(visible).getText();
         assertEquals(result, findResult);
@@ -47,6 +50,7 @@ public class SearchPage {
 
     @Step("Проверка количества элементов в Списке Поиска")
     public SearchPage checkList(int quantity){
+        parameter("Элементов в списке", quantity);
         elementsList.shouldHaveSize(quantity);
         return this;
     }
