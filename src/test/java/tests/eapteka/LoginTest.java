@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
         loginPage.setLogin(login);
         loginPage.setPassword(password);
         loginPage.loginCheck();
-        loginPage.logout();
+        loginPage.clickLogout();
     }
 
     @Issue("WEB-15283")
@@ -36,7 +36,7 @@ public class LoginTest extends BaseTest {
         loginPage.setLogin(login);
         loginPage.setPassword(password);
         loginPage.loginCheck();
-        loginPage.logout();
+        loginPage.clickLogout();
     }
 
 

@@ -19,7 +19,7 @@ public class LoginPage {
             loginError = $x("//*[@class='help-block form-error']"),
             loginFormClose = $x("//*[@class='popups__xclose']");
 
-    @Step("Залогиниваюсь на сайте")
+    @Step("Логин на сайте")
     public LoginPage logInToTheSite(String login, String password){
         openLoginForm();
         setLogin(login);
@@ -28,43 +28,43 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Проверяю наличие Чек бокса для Логина")
+    @Step("Есть ссылка на Личный кабинет ")
     public LoginPage loginCheck(){
         entrance.shouldHave(text("Личный кабинет")).shouldBe(visible);
         return this;
     }
 
-    @Step("Открываю форму логине")
+    @Step("Открыть форму логина")
     public LoginPage openLoginForm (){
         entrance.shouldHave(text("Вход")).shouldBe(visible).click();
         return this;
     }
 
-    @Step("Разлогиниваюсь")
-    public LoginPage logout (){
+    @Step("Выход из аккаунта")
+    public LoginPage clickLogout(){
         logout.shouldHave(text("Выход")).shouldBe(visible).click();
         return this;
     }
 
-    @Step("Ввожу значение {login} в поле ввода логина")
+    @Step("Ввод значения {login} в поле ввода Логин")
     public LoginPage setLogin(String login){
         setLogin.shouldBe(visible).setValue(login);
         return this;
     }
 
-    @Step("Ввожу значение {password} в поле ввода пароля")
+    @Step("Ввод значения {password} в поле ввода Пароль")
     public LoginPage setPassword (String password){
         setPassword.shouldBe(visible).setValue(password).pressEnter();
         return this;
     }
 
-    @Step("Проверяю исключение для невалидного Логина")
+    @Step("Проверка исключение для невалидного Логина")
     public LoginPage loginError (){
         loginError.shouldHave(text("Введённое значение неверно")).shouldBe(visible);
         return this;
     }
 
-    @Step("Закрываю форму логина")
+    @Step("Выход из формы Логина")
     public LoginPage closeLoginForm (){
         loginFormClose.click();
         entrance.scrollTo().shouldHave(text("Вход")).shouldBe(visible);

@@ -1,13 +1,13 @@
 package tests.eapteka;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
 
@@ -21,6 +21,7 @@ public class BaseTest {
     public static void setUp(){
         open("https://www.eapteka.ru/");
         setRegion.click();
+        SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true));
     }
 
     @AfterEach

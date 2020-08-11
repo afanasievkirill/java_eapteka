@@ -31,7 +31,7 @@ public class GithubIssuesTest {
     @Test
     @Story("Проверка наличия задач")
     @DisplayName("Проверка наличия Issues в проекте GitHub")
-    public void testIssueExistsWithoutSteps() throws Exception {
+    public void testIssueExistsWithoutStepsTest() throws Exception {
         final Issue issue = apiSteps.createIssue(
                 "eroshenkoam",
                 "allure-example",

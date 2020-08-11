@@ -19,25 +19,25 @@ public class SearchPage {
     private static final ElementsCollection
         elementsList = $$x(".//*[@class='d-flex align-items-start align-items-lg-center cc-item']");
 
-    @Step("Ввожу наименование препарата в строку поиска")
+    @Step("Ввод Наименование Препарата в строке поиска")
     public SearchPage setProductName(String productName) {
         searchBar.shouldBe(visible).setValue(productName);
         return this;
     }
 
-    @Step("Подтверждаю ввод нажатием кнопки на формы")
+    @Step("Подтверждение ввода нажатием кнопки на формы")
     public SearchPage pressSubbmitButton() {
         searchSubbmit.shouldBe(visible).click();
         return this;
     }
 
-    @Step("Подтверждаю ввод нажатием Энтер")
+    @Step("Подтверждение ввода нажатием клавиши энтер")
     public SearchPage pressEnter() {
         searchSubbmit.shouldBe(visible).pressEnter();
         return this;
     }
 
-    @Step("Проверяю наличие количества найденных элементов в заголовке Списка")
+    @Step("Проверка количества найденных элементов в заголовке Списка")
     public SearchPage checkHeaderElementsList(int quantity){
         String result = "Найдено " + quantity + " результатов";
         String findResult = checkElement.shouldBe(visible).getText();
@@ -45,7 +45,7 @@ public class SearchPage {
         return this;
     }
 
-    @Step("Проверяю количество элементов в списке поиска")
+    @Step("Проверка количества элементов в Списке Поиска")
     public SearchPage checkList(int quantity){
         elementsList.shouldHaveSize(quantity);
         return this;
