@@ -40,3 +40,4 @@ target/
 .todo
 
 allure.properties
+githubProperties.csv

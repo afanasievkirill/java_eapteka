@@ -13,7 +13,7 @@ public class BaseTest {
 
     final static SelenideElement setRegion = $x("//*[@class='header__tower-skip header__skip-start btn btn-success btn-sm']");
 
-    //Search viget
+    //Search wiget
     final SelenideElement searchBar = $x("//form/input");
     final SelenideElement searchSubbmit = $x("//*[@class='searchbar__button btn btn-send']");
 
@@ -21,7 +21,8 @@ public class BaseTest {
     public static void setUp(){
         open("https://www.eapteka.ru/");
         setRegion.click();
-        SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true));
+        SelenideLogger.addListener("allure", new AllureSelenide()
+                .savePageSource(true).screenshots(true));
     }
 
     @AfterEach
