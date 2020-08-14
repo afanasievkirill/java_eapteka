@@ -28,10 +28,10 @@ public class RestAssuredSteps {
     }
 
     @Step("Получаем информацию о задаче по номеру")
-    public Issue getIssue(String repo, int number){
+    public Issue getIssue(String repo, int number, String TOKEN){
         return  given()
                 .filter(new AllureRestAssured())
-                .header("Authorization", "token 728126394059a3991c9e6e3b8e83121401f35f6e")
+                .header("Authorization", "token " + TOKEN )
                 .baseUri("https://api.github.com")
                 .when()
                 .get("repos/"+ repo + "/issues/" + number)

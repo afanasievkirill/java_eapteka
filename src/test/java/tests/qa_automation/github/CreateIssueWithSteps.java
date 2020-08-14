@@ -41,7 +41,7 @@ public class CreateIssueWithSteps extends BaseTest{
         issueSteps.setType(issueType);
         issueSteps.saveIssue();
         issueNumber = issueSteps.getIssueNumber();
-        issue = apiSteps.getIssue(REPOSITORY, issueNumber);
+        issue = apiSteps.getIssue(REPOSITORY, issueNumber, TOKEN);
         issueSteps.assertRequest(issue,issueNumber,issueTitle, issueBody);
     }
 }
