@@ -53,11 +53,6 @@ public class CreateIssueWithListner extends BaseTest{
         $(byText("Submit new issue")).shouldBe(visible).click();
         int issueNumber = Integer
                 .parseInt($(".js-issue-title").sibling(0).getText().replace("#", ""));
-        /*
-        open("https://github.com/afanasievkirill/java_eapteka/issues/" + issueNumber);
-        $x(".author text-bold link-gray").shouldHave(text("afanasievkirill"));
-        $(".css-truncate-target").shouldHave(text("bug"));
-         */
         issue = given()
                 .filter(new AllureRestAssured())
                 .header("Authorization", "token " + TOKEN)

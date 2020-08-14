@@ -14,7 +14,7 @@ import qa_automation.github.steps.LoginSteps;
 import qa_automation.github.steps.RestAssuredSteps;
 
 @Feature("Создание задачи")
-@DisplayName("Создание задачи и проверка через АПИ")
+@DisplayName("Создание задачи и проверка через АПИ с использованием Степов")
 @Story("Использование степов")
 @Owner("afanasievkirill")
 public class CreateIssueWithSteps extends BaseTest{
