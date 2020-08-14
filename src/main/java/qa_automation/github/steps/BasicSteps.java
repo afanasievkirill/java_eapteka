@@ -1,4 +1,4 @@
-package qa_automation.github;
+package qa_automation.github.steps;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -13,6 +13,11 @@ public class BasicSteps {
     @Step("Открываем главную страницу")
     public void openMainPage(String user) {
         parameter("user", user);
+        open("https://github.com");
+    }
+
+    @Step("Открываем главную страницу")
+    public void openMainPage() {
         open("https://github.com");
     }
 

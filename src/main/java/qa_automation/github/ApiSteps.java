@@ -5,13 +5,14 @@ import io.qameta.allure.Step;
 import io.qameta.allure.okhttp3.AllureOkHttp3;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import qa_automation.github.model.Issue;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiSteps {
 
     private static final String TOKEN = "6ffaa85dd3896b386fe2cf3b3f0040e5c8f4985d";
-    private GithubClient github;
+    public GithubClient github;
 
     public ApiSteps() {
         final OkHttpClient client = new OkHttpClient.Builder()

@@ -3,6 +3,7 @@ package tests.qa_automation.github;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
@@ -15,22 +16,24 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Feature("Создание задачи")
+
 @Story("Использование Лямбда функций")
 @Owner("afanasievkirill")
 public class CreateIssueWithPlain extends BaseTest {
 
     private static final String name = "afanasievkirill/java_eapteka";
 
+    @DisplayName("Создание задачи и проверка через АПИ с использованием Лямбд")
     @ParameterizedTest
     @CsvFileSource(resources = "/githubProperties.csv", numLinesToSkip = 1)
-    public void createIssueWithPlain(String login, String password){
+    public void createIssueWithPlain(String LOGIN, String PASSWORD, String REPOSITORY, String TOKEN){
         step("Открываем главную страницу", () -> {
             open("https://github.com");
         });
         step("Залогиниваеся на сайте", () -> {
             $x("//*[@class='HeaderMenu-link no-underline mr-3']").shouldBe(visible).click();
-            $(byName("login")).shouldBe(visible).setValue(login);
-            $(byName("password")).shouldBe(visible).setValue(password).pressEnter();
+            $(byName("login")).shouldBe(visible).setValue(LOGIN);
+            $(byName("password")).shouldBe(visible).setValue(PASSWORD).pressEnter();
         });
         step("Ищем репозиторий", () -> {
             $(".header-search-input").click();
@@ -40,7 +43,7 @@ public class CreateIssueWithPlain extends BaseTest {
         step("Переходим в найденый репозиторий", () -> {
             $(By.linkText(name)).click();
         });
-        step("Переходим в список задач", () -> {
+        step("Открываем список задач", () -> {
             $x("//*[@data-content='Issues']").shouldBe(visible).click();
         });
         step("Открываем форму создания Задачи", () -> {
@@ -70,7 +73,7 @@ public class CreateIssueWithPlain extends BaseTest {
             open("https://github.com/afanasievkirill/java_eapteka/issues/" + issueNumber);
         });
         step("Проверяем исполнителя и тип задачи", () -> {
-            $(".author text-bold link-gray").shouldHave(text("afanasievkirill"));
+            $(".author text-bold link-gray").shouldHave(text(LOGIN));
             $(".css-truncate-target").shouldHave(text("bug"));
         });
 

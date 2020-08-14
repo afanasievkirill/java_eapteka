@@ -1,12 +1,19 @@
-package qa_automation.github;
+package qa_automation.github.model;
 
-public class Issue {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Issue implements Serializable {
 
     private long id;
 
     private int number;
     private String title;
     private String body;
+    private String login;
+    private String name;
 
     public long getId() {
         return id;
@@ -40,4 +47,19 @@ public class Issue {
         this.number = number;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

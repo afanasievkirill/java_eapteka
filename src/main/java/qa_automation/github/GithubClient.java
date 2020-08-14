@@ -1,5 +1,6 @@
 package qa_automation.github;
 
+import qa_automation.github.model.Issue;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

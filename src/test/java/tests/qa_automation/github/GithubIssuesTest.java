@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import qa_automation.github.ApiSteps;
-import qa_automation.github.BasicSteps;
-import qa_automation.github.Issue;
+import qa_automation.github.steps.BasicSteps;
+import qa_automation.github.model.Issue;
 
 @Feature("Работа с задачами")
 public class GithubIssuesTest {
