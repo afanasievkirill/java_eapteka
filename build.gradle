@@ -52,4 +52,11 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+task apteka_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'LoginTest'
+        excludeTags 'SearchTest'
+    }
+}
+
 

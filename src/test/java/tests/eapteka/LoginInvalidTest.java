@@ -9,13 +9,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 @Feature("Для бизнеса важно, что система укажет на ошибки при Логине Пользователя")
+@Tag("LoginTest")
 public class LoginInvalidTest extends BaseTest {
 
     LoginPage loginPage = new LoginPage();
 
     @Issue("WEB-15283")
     @DisplayName("Проверяю ввод невалидных данных в поле Логин")
-    @Tag("LoginTest")
     @ParameterizedTest
     @ValueSource(strings = {"1", "Noname", " ", "!@#$%^&*()"})
     public void wrongLoginTest(String login){
