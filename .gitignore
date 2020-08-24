@@ -39,5 +39,4 @@ target/
 /gradlew.bat
 .todo
 
-allure.properties
 githubProperties.csv
