@@ -46,7 +46,7 @@ public class IssueSteps {
         $(byId("issue_body")).shouldBe(visible).setValue(issueBody);
     }
 
-    @Step("Выбираем ответственного (Переписать локатор)")
+    @Step("Выбираем ответственного") // TODO Переписать локатор
         public void setUser(){
         $(byId("assignees-select-menu")).shouldBe(visible).click();
         // Не стабильный локатор
