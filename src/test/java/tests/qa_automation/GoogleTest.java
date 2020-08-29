@@ -1,5 +1,8 @@
 package tests.qa_automation;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -13,13 +16,12 @@ class GoogleTest {
     @Tag("GoogleTest")
     @Test
     void selenideSearchTest() {
-        // Открыть google
+
+        SelenideLogger.addListener("allure", new AllureSelenide()
+                .savePageSource(true).screenshots(true));
+        Configuration.headless = true;
         open("https://google.com");
-
-        // Ввести Selenide в поиск
         $(byName("q")).setValue("Selenide").pressEnter();
-
-        // Проверить, что Selenide появился в результатах поиска
         $("html").shouldHave(text("ru.selenide.org"));
     }
 }
