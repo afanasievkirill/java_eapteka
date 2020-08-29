@@ -62,4 +62,10 @@ task apteka_tests(type: Test) {
     }
 }
 
+task google_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'GoogleTest'
+    }
+}
+
 
