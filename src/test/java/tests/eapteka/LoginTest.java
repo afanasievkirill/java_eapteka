@@ -38,5 +38,4 @@ public class LoginTest extends BaseTest {
         loginPage.clickLogout();
     }
 
-
 }

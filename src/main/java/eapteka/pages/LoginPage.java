@@ -31,7 +31,7 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Есть ссылка на Личный кабинет ")
+    @Step("Есть ссылка на Личный кабинет")
     public LoginPage loginCheck(){
         entrance.shouldHave(text("Личный кабинет")).shouldBe(visible);
         return this;

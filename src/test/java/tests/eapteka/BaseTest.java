@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
@@ -19,12 +20,15 @@ public class BaseTest {
 
     @BeforeAll
     public static void setUp(){
-        Configuration.headless = true;
-        open("https://www.eapteka.ru/");
-        setRegion.click();
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true).screenshots(true));
+        Configuration.headless = true;
+    }
 
+    @BeforeEach
+    public void setUps(){
+        open("https://www.eapteka.ru/");
+        setRegion.click();
     }
 
     @AfterEach
