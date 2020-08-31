@@ -1,4 +1,4 @@
-package tests.qa_automation;
+package tests.qa_automation.google_tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -11,14 +11,13 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-class GoogleTest {
+class GoogleTest extends BaseTest{
 
     @Tag("GoogleTest")
     @Test
     void selenideSearchTest() {
 
-        SelenideLogger.addListener("allure", new AllureSelenide()
-                .savePageSource(true).screenshots(true));
+
         Configuration.headless = true;
         open("https://google.com");
         $(byName("q")).setValue("Selenide").pressEnter();
