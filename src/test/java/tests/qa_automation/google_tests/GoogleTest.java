@@ -1,8 +1,7 @@
 package tests.qa_automation.google_tests;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -11,16 +10,15 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-class GoogleTest extends BaseTest{
+@Story("Тестирование поиска в Гугле")
+class GoogleTest extends BaseTest {
 
     @Tag("GoogleTest")
+    @DisplayName("Проверяем выдачу  по запросу Селенид")
     @Test
     void selenideSearchTest() {
-
-
-        Configuration.headless = true;
         open("https://google.com");
         $(byName("q")).setValue("Selenide").pressEnter();
-        $("html").shouldHave(text("ru.selenide.org"));
+        $("#rso").shouldHave(text("ru.selenide.org"));
     }
 }

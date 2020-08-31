@@ -1,4 +1,4 @@
-package tests.qa_automation.google_tests;
+package tests.qa_automation.alfa_tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -8,9 +8,10 @@ import org.junit.jupiter.api.BeforeAll;
 public class BaseTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUps() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true).screenshots(true));
         Configuration.headless = true;
     }
+
 }

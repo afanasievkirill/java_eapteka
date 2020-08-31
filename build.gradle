@@ -68,4 +68,10 @@ task google_tests(type: Test) {
     }
 }
 
+task alfa_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'AlfaTest'
+    }
+}
+
 
