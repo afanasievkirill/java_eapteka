@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
@@ -19,6 +20,6 @@ class GoogleTest extends BaseTest {
     void selenideSearchTest() {
         open("https://google.com");
         $(byName("q")).shouldBe(visible).setValue("Selenide").pressEnter();
-      //  $(".html").shouldBe(visible).shouldHave(text("ru.selenide.org"));
+        $(".search-results").shouldBe(visible).shouldHave(text("ru.selenide.org"));
     }
 }

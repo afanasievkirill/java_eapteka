@@ -18,20 +18,20 @@ public class BaseTest {
     final SelenideElement searchSubbmit = $x("//*[@class='searchbar__button btn btn-send']");
 
     @BeforeAll
-    public static void setUp(){
+    public static void beforeAll(){
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true).screenshots(true));
         Configuration.headless = true;
     }
 
     @BeforeEach
-    public void setUps(){
+    public void beforeEach(){
         open("https://www.eapteka.ru/");
         setRegion.click();
     }
 
     @AfterEach
-    void tearDown(){
+    void afterEach(){
         closeWebDriver();
     }
 }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 public class BaseTest {
 
     @BeforeAll
-    public static void setUp(){
+    public static void beforeAll(){
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true).screenshots(true));
         Configuration.headless = true;
