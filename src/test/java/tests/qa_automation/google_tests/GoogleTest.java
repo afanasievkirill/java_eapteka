@@ -20,6 +20,6 @@ class GoogleTest extends BaseTest {
     void selenideSearchTest() {
         open("https://google.com");
         $(byName("q")).shouldBe(visible).setValue("Selenide").pressEnter();
-        $("#rc").shouldBe(visible).shouldHave(text("ru.selenide.org"));
+        $("#TbwUpd NJjxre").shouldBe(visible).shouldHave(text("ru.selenide.org"));
     }
 }
